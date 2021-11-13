@@ -1,9 +1,8 @@
 import random
 
 def MainMenu():
-    # Making sure the user enters a valid value
     try:
-        userInput = int(input("Press 1 to check your password\nPress 2 to generate a new password\n>>> "))
+        userInput = int(input("Press 1 to check your password\nPress 2 to generate a new password: "))
     except ValueError:
         print("Please enter a valid character")
         MainMenu()
@@ -24,13 +23,10 @@ def CheckPassword():
 
     userPassword = input("Please enter your password\n>>> ")    
 
-    # Error handling
     while len(userPassword) < 6:
         userPassword = input("The password you entered is too short, please try again\n>>> ")
 
-    # Loops through the user's password and checks if it passess all the criteria
-    for i in range (len(userPassword)):
-        # Converts the character in to ASCII        
+    for i in range (len(userPassword)):      
         asciiLetter = ord(userPassword[i]) 
 
         # Checks to see if the ASCII matches with the corresponging numbers
@@ -53,8 +49,7 @@ def CheckPassword():
 
 def CreatePassword():
     password = ""        
-
-    # Loops through the legnth of the password  
+ 
     for typeOfCharacter in range(20):
         typeOfCharacter = random.randint(1, 4)
         
@@ -81,7 +76,5 @@ def CreatePassword():
 
 def ConvertAsciiToString(asciiNum):
     return chr(asciiNum)
-
-
 
 MainMenu()
